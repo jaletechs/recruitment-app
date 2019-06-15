@@ -7,13 +7,14 @@ package com.jaletechs.recruiterapp.recruiter_app.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  *
  * @author jaletechs
  */
 @Entity
-@Table(name = "user", catalog = "recruitment_app", schema = "")
+@Table(name = "user")
 @NamedQueries({
     @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
     @NamedQuery(name = "User.findByEmail", query = "SELECT u FROM User u WHERE u.email = :email"),
@@ -36,6 +37,8 @@ public class User implements Serializable {
     @Basic(optional = false)
     @Column(name = "active")
     private boolean active;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "email")
+    private List<UserRole> userRoleList;
 
     public User() {
     }
@@ -81,6 +84,14 @@ public class User implements Serializable {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public List<UserRole> getUserRoleList() {
+        return userRoleList;
+    }
+
+    public void setUserRoleList(List<UserRole> userRoleList) {
+        this.userRoleList = userRoleList;
     }
 
     @Override
