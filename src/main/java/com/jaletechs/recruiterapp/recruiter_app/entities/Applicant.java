@@ -5,6 +5,8 @@
  */
 package com.jaletechs.recruiterapp.recruiter_app.entities;
 
+import com.jaletechs.recruiterapp.recruiter_app.type.Listing;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -37,7 +39,8 @@ public class Applicant implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dob;
     @Column(name = "listing")
-    private String listing;
+    @Enumerated(EnumType.STRING)
+    private Listing listing;
     @Lob
     @Column(name = "passport")
     private byte[] passport;
@@ -84,11 +87,11 @@ public class Applicant implements Serializable {
         this.dob = dob;
     }
 
-    public String getListing() {
+    public Listing getListing() {
         return listing;
     }
 
-    public void setListing(String listing) {
+    public void setListing(Listing listing) {
         this.listing = listing;
     }
 
