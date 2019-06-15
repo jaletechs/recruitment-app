@@ -8,7 +8,7 @@ import java.io.Serializable;
  * @author jaletechs
  */
 @Entity
-@Table(name = "user_role", catalog = "recruitment_app", schema = "")
+@Table(name = "user_role")
 @NamedQueries({
     @NamedQuery(name = "UserRole.findAll", query = "SELECT u FROM UserRole u"),
     @NamedQuery(name = "UserRole.findById", query = "SELECT u FROM UserRole u WHERE u.id = :id")})

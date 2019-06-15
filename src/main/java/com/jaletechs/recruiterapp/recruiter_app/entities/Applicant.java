@@ -17,7 +17,7 @@ import java.util.List;
  * @author jaletechs
  */
 @Entity
-@Table(name = "applicant", catalog = "recruitment_app", schema = "")
+@Table(name = "applicant")
 @NamedQueries({
     @NamedQuery(name = "Applicant.findAll", query = "SELECT a FROM Applicant a"),
     @NamedQuery(name = "Applicant.findByApplicantId", query = "SELECT a FROM Applicant a WHERE a.applicantId = :applicantId"),
